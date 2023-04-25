@@ -1,0 +1,6 @@
+rule "HelloWorld"
+
+@match "hello":
+  send("Hello, World")
+  finish
+
