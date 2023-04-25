@@ -1,17 +1,17 @@
 import re
 
 KEYWORDS = [
-    "use",
-    "match",
-    "rule",
-    "on",
+#    "use",
+#    "match",
+#    "rule",
+#    "on",
     "const",
     "var",
     "let",
-    "del",
-    "eval",
+#    "del",
+    "eval:",
     "lua",
-    "config"
+#    "config"
 ]
 
 EXPRS = [
@@ -34,7 +34,7 @@ TYPES = {
     "end": "end|finish|fi",
     "at": "@",
     "dot": r"\.",
-    "var": r"\$(.+)",
+    "var": r"\$([\u4E00-\u9FA5AA-Za-z0-9_:]+)",
     "int": "-?([1-9][0-9]*|0x[0-9a-f]+|0b[0-1]+|0o[0-8]+)",
     "indent": "^( |\t)+",
     "space": "( |\t)+",
@@ -48,7 +48,7 @@ TYPES = {
     "comment": r"(/\*(.*)\*/)|(//.*$)",
     "newline": "\n",
     "comma": ",",
-    "name": r"[^'\"\\\(\) \n\t;]+",
+    "name": r"[\u4E00-\u9FA5AA-Za-z0-9_:]+",#r"[^'\"\\\(\) \n\t;:\.]+",
     "unknown": "(.+)"
 }
 

@@ -1,8 +1,14 @@
 rule "HelloWorld"
 
 @match "hello":
-  send("Hello, World")
+  send("Hello, World", "114513")
   finish
 
 @command "helloworld"
   send("Hello", $user)
+  finish
+
+@command "add <a> <b>"
+  send($a, "+", $b, "=", $a+$b)
+  finish
+

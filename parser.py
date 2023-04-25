@@ -1,4 +1,4 @@
-import json
+import json5
 import lexer
 
 class Parser:
@@ -35,7 +35,20 @@ class Parser:
             elif self.token_type() == "keyword":
                 ast["type"] = self.token_value()
             elif self.token_type() in ["string", "int"]:
-                ast["args"].append(json.loads(self.token_value()))
+                ast["args"].append(json5.loads(self.token_value()))
+            elif self.token_type() == "var":
+                ast["args"].append([{
+                    "type": "call",
+                    "func": "*get_value",
+                    "args": [self.token_value()]
+                }])
+            elif self.token_type() == "dot":
+                self.next()
+                ast["func"] = [{
+                    "type": "call",
+                    "func": "*get",
+                    "args": [self.token_value(), ast["func"]]
+                }]
         if ast["type"] != None:
             self.ast.append(ast)
         return self.ast
