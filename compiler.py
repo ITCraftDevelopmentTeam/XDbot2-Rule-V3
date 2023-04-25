@@ -1,4 +1,5 @@
 import lexer
+from rich import print
 import preporcessor
 import parser
 

@@ -4,3 +4,5 @@ rule "HelloWorld"
   send("Hello, World")
   finish
 
+@command "helloworld"
+  send("Hello", $user)

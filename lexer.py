@@ -31,11 +31,11 @@ EXPRS = [
 TYPES = {
     "keyword": "|".join(KEYWORDS),
     "string": r"(\"(\\.|[^\"])*\")|('(\\.|[^'])*')",
+    "end": "end|finish|fi",
     "at": "@",
     "dot": r"\.",
     "var": r"\$(.+)",
     "int": "-?([1-9][0-9]*|0x[0-9a-f]+|0b[0-1]+|0o[0-8]+)",
-    "comment": r"(/\*(.*)\*/)|(//.*$)",
     "indent": "^( |\t)+",
     "space": "( |\t)+",
     "lpar": "\\(",
@@ -45,10 +45,11 @@ TYPES = {
     "eol": ";",
     "op": ":",
     "expr": "|".join(EXPRS),
+    "comment": r"(/\*(.*)\*/)|(//.*$)",
     "newline": "\n",
     "comma": ",",
     "name": r"[^'\"\\\(\) \n\t;]+",
-    "unknown": "(.*)"
+    "unknown": "(.+)"
 }
 
 def parse(src_code: str, ignore_token: bool = True) -> list:
