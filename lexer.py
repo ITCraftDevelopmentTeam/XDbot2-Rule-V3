@@ -1,17 +1,17 @@
 import re
 
 KEYWORDS = [
-#    "use",
-#    "match",
-#    "rule",
-#    "on",
+    #    "use",
+    #    "match",
+    #    "rule",
+    #    "on",
     "const",
     "var",
     "let",
-#    "del",
+    #    "del",
     "eval:",
     "lua",
-#    "config"
+    #    "config"
 ]
 
 EXPRS = [
@@ -48,9 +48,10 @@ TYPES = {
     "comment": r"(/\*(.*)\*/)|(//.*$)",
     "newline": "\n",
     "comma": ",",
-    "name": r"[\u4E00-\u9FA5AA-Za-z0-9_:]+",#r"[^'\"\\\(\) \n\t;:\.]+",
+    "name": r"[\u4E00-\u9FA5AA-Za-z0-9_:]+",  # r"[^'\"\\\(\) \n\t;:\.]+",
     "unknown": "(.+)"
 }
+
 
 def parse(src_code: str, ignore_token: bool = True) -> list:
     result: list = []
@@ -65,5 +66,5 @@ def parse(src_code: str, ignore_token: bool = True) -> list:
         if mo.lastgroup in ["space", "null_char", "comment", "newline"]\
                 and ignore_token:
             continue
-        result.append((mo[0], mo.lastgroup)) 
+        result.append((mo[0], mo.lastgroup))
     return result

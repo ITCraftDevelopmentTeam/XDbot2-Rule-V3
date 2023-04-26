@@ -1,10 +1,12 @@
 import lexer
 
+
 def tokens2code(tokens):
     buf = ""
     for token in tokens:
         buf += token[0]
     return buf
+
 
 def prepare(src_code):
     tokens = lexer.parse(src_code, False)
@@ -35,4 +37,3 @@ def prepare(src_code):
             line_tokens += 1
         token_length += 1
     return tokens2code(tokens)
-
