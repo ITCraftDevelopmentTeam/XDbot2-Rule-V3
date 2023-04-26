@@ -1,14 +1,22 @@
 rule "HelloWorld"
+config "version" "1.1.1"
 
 @match "hello":
-  send("Hello, World", "114513")
-  finish
+  send("Hello, World")
+  
+  @if ($user == 1744793737)
+    buf.write("Hello, ")
+    let b = "2"
+  fi
+  
+  let text = ("1" + "2") * 0xff
+  send($text)
 
-@command "helloworld"
-  send("Hello", $user)
-  finish
+  send("awa")
+finish
 
-@command "add <a> <b>"
-  send($a, "+", $b, "=", $a+$b)
-  finish
+@command "hello"
+  send(eval: '1+1')
+finish
+
 
