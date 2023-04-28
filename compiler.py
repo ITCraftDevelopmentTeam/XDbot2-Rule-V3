@@ -5,10 +5,13 @@ import parser
 import visitor
 import json
 
-if __name__ == "__main__":
-    with open("./helloworld.xr", encoding="utf-8") as f:
+def compile(file, out):
+    with open(file, encoding="utf-8") as f:
         result = visitor.codegen(parser.Parser(lexer.parse(
             preporcessor.prepare(f.read()))).parse())
     print(result)
-    json.dump(result, open("./helloworld.xr.json", "w", encoding="utf-8"))
+    json.dump(result, open(out, "w", encoding="utf-8"))
 
+if __name__ == "__main__":
+    import sys
+    compile(sys.argv[1], sys.argv[2])

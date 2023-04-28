@@ -15,8 +15,6 @@ config "version" "1.1.1"
   send("awa")
 finish
 
-@command "hello"
-  send(eval: '1+1')
-finish
+command "hello": send(eval: '1+1'); finish;
 
 

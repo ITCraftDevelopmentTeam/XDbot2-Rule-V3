@@ -31,8 +31,9 @@ def prepare(src_code):
             starts_with_at = False
             token_length += 1
             line_tokens = 0
-        elif token[1] == "newline":
+        elif token[1] in ["newline", "op", "eol"]:
             starts_with_at = False
+            line_tokens = 0
         else:
             line_tokens += 1
         token_length += 1
