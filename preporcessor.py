@@ -1,4 +1,4 @@
-import lexer
+from . import lexer
 
 
 def tokens2code(tokens):

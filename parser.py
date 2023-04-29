@@ -1,5 +1,5 @@
 import json5
-import lexer
+# import lexer
 
 ENDS = {
     "op": "end",
